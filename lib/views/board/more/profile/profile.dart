@@ -4,9 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:social_app/core/helper/configs/instances.dart';
+import 'package:social_app/core/helper/routes/navigation.dart';
 import 'package:social_app/core/helper/utils/pallets.dart';
 import 'package:social_app/core/map/map_caller.dart';
 import 'package:social_app/views/widgets/body_widget.dart';
+import 'package:social_app/views/widgets/instagram/web_view.dart';
 import 'package:social_app/views/widgets/text_views.dart';
 
 import 'widgets/alert_dialog.dart';
@@ -109,10 +111,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   title: 'Enter Website', value: (String? value) {
                 log.d(value);
               }),
-              instagram: () => displayTextInputDialog(context,
-                  title: 'Enter Instagram Username', value: (String? value) {
-                log.d(value);
-              }),
+              instagram: () => PageRouter.gotoWidget(WebViewExample(), context),
               map: () => CallMap.pickLocationFromMap(context,
                   callback: ((result) => {
                         log.d(

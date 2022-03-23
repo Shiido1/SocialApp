@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:social_app/core/helper/configs/instances.dart';
 import 'package:social_app/core/helper/utils/pallets.dart';
+import 'package:social_app/views/board/more/edit/edit_screen.dart';
+import 'package:social_app/views/board/more/profile/widgets/alert_dialog.dart';
+import 'package:social_app/views/board/more/profile/widgets/icon_widgets.dart';
 import 'package:social_app/views/widgets/buttons.dart';
 import 'package:social_app/views/widgets/text_views.dart';
 
+import '../../../../core/helper/routes/navigation.dart';
+import '../../../../core/map/map_caller.dart';
 import '../../../widgets/body_widget.dart';
 
 class ProScreen extends StatefulWidget {
@@ -46,7 +51,8 @@ class _ProScreenState extends State<ProScreen> {
                     ),
                     ButtonWidget(
                       buttonText: 'Edit Profile',
-                      onPressed: () {},
+                      onPressed: () =>
+                          PageRouter.gotoWidget(EditScreen(), context),
                       height: 20,
                       width: 100,
                     )
@@ -56,7 +62,23 @@ class _ProScreenState extends State<ProScreen> {
             ],
           ),
           SizedBox(
-            height: 20,
+            height: 30,
+          ),
+          IconWidget(
+            copy: () => displayTextInputDialog(context, title: 'Enter Website',
+                value: (String? value) {
+              log.d(value);
+            }),
+            instagram: () => displayTextInputDialog(context,
+                title: 'Enter Instagram Username', value: (String? value) {
+              log.d(value);
+            }),
+            map: () => CallMap.pickLocationFromMap(context,
+                callback: ((result) => {
+                      log.d(
+                          '${result?.city?.name ?? ''}, ${result?.country?.name ?? ''}')
+                    })),
+            edit: () => {},
           ),
           textContainerWidget(
               text: faker.jwt.custom(expiresIn: DateTime.now(), payload: {})),

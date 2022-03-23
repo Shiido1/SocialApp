@@ -54,8 +54,8 @@ class _MainBoardScreenState extends State<MainBoardScreen> {
       Container(),
       Container(),
       Container(),
-      ProScreen()
-      // ProfileScreen()
+      // ProScreen()
+      ProfileScreen()
     ];
   }
 
