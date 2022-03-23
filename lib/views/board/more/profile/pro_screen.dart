@@ -66,7 +66,7 @@ class _ProScreenState extends State<ProScreen> {
           textContainerWidget(text: 'Invite Friends'),
           textContainerWidget(text: 'Help Center'),
           textContainerWidget(text: 'Terms'),
-          textContainerWidget(text: 'Policy'),
+          textContainerWidget(text: 'Policy '),
           SizedBox(
             height: 20,
           ),
