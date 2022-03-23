@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+import 'package:social_app/views/board/more/edit/edit_screen.dart';
 
 import 'explore/explore_screen.dart';
+import 'more/profile/pro_screen.dart';
 import 'more/profile/profile.dart';
 
 class MainBoardScreen extends StatefulWidget {
@@ -52,7 +54,8 @@ class _MainBoardScreenState extends State<MainBoardScreen> {
       Container(),
       Container(),
       Container(),
-      ProfileScreen()
+      ProScreen()
+      // ProfileScreen()
     ];
   }
 
